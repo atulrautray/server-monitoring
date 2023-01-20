@@ -149,11 +149,14 @@ def service_cpu_memory(port: int, service: str):
 
 
 def service_cpu_memory_loop(port: int, service: str, refresh: int):
-    while True:
-        print(f"{service}")
-        service_cpu_memory(port, service)
-        print("\n")
-        time.sleep(refresh)
+    try:
+        while True:
+            print(f"{service}")
+            service_cpu_memory(port, service)
+            print("\n")
+            time.sleep(refresh)
+    except KeyboardInterrupt:
+        print("Exiting")
 
 
 def main(args):
@@ -192,7 +195,7 @@ if __name__ == "__main__":
         "--service",
         action="append",
         nargs=2,
-        metavar=("service", "refresh rate"),
+        metavar=("service", "refresh rate (sec)"),
         help="Print service details in a loop",
     )
     parser.add_argument("--port", type=int, help="Port number", required=True)
