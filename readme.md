@@ -42,5 +42,6 @@ python3 server.py <port>
 
 * To run the client (port is required, rest of the flags are optional):
 ```
-python3 client.py --port <port> --printservers --avg --unhealthyservices --service <service name>
+python3 client.py --port <port> --printservers --avg 
+--unhealthyservices --service <service name>
 ```
