@@ -83,6 +83,7 @@ def check_data_validity():
     last_modified_datetime = datetime.fromtimestamp(last_modified_time)
     current_time = datetime.now()
     if current_time - last_modified_datetime < timedelta(minutes=FREQ):
+        print("Refreshing Data")
         return True
     else:
         return False
